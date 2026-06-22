@@ -1,0 +1,59 @@
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-tag">Architecture · Design · Vision</p>
+    <h1 class="hero-title">Spaces That<br/><em>Inspire</em> &amp;<br/>Endure</h1>
+    <p class="hero-sub">VAD Architects crafts timeless environments where bold design meets precision engineering — every structure a testament to vision.</p>
+    <div class="hero-btns">
+      <a routerLink="/projects" class="btn-primary">Explore Projects</a>
+      <a routerLink="/about" class="btn-ghost">Our Story</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat-item reveal" *ngFor="let s of stats; let i = index" [attr.data-idx]="i">
+    <div class="stat-num">{{ displayNums[i] }}+</div>
+    <div class="stat-label">{{ s.label }}</div>
+  </div>
+</div>
+
+<!-- PROJECTS PREVIEW -->
+<section class="projects-preview">
+  <div class="projects-header reveal">
+    <div>
+      <p class="section-tag">Our Work</p>
+      <h2 class="section-title">Featured <em>Projects</em></h2>
+    </div>
+    <p class="section-desc">Click any project to explore the full gallery.</p>
+  </div>
+  <div class="projects-grid">
+    <div class="project-card reveal" *ngFor="let p of projects; let i = index"
+         [style.transition-delay]="(i * 0.08) + 's'"
+         (click)="openModal(p)">
+      <img class="project-thumb-main" [src]="p.thumb" [alt]="p.name" />
+      <div class="project-mini-row">
+        <div class="project-mini-thumb" *ngFor="let img of p.images.slice(1,4)">
+          <img [src]="img" alt="" />
+        </div>
+      </div>
+      <div class="project-overlay"></div>
+      <div class="project-info">
+        <div class="project-cat">{{ p.category }}</div>
+        <div class="project-name">{{ p.name }}</div>
+        <div class="project-year">{{ p.location }} · {{ p.year }}</div>
+        <div class="project-view-btn">View Project →</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL -->
+<app-project-modal *ngIf="selectedProject" [project]="selectedProject" (closed)="closeModal()" />

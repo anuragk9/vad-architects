@@ -1,0 +1,31 @@
+<div class="modal-overlay" (click)="onOverlayClick($event)">
+  <div class="modal-box">
+    <div class="modal-close">
+      <button class="modal-close-btn" (click)="close()">✕</button>
+    </div>
+    <img class="modal-hero" [src]="project.images[0]" [alt]="project.name" />
+    <div class="modal-body">
+      <p class="modal-cat">{{ project.category }}</p>
+      <h2 class="modal-title">{{ project.name }}</h2>
+      <div class="modal-meta">
+        <span>📍 <strong>{{ project.location }}</strong></span>
+        <span>📅 <strong>{{ project.year }}</strong></span>
+        <span>📐 <strong>{{ project.area }}</strong></span>
+      </div>
+      <p class="modal-desc">{{ project.desc }}</p>
+      <div class="modal-gallery">
+        <div class="modal-gallery-img" *ngFor="let img of project.images; let i = index" (click)="openLightbox(i)">
+          <img [src]="img" [alt]="project.name + ' ' + (i+1)" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Lightbox -->
+<div class="lightbox" [class.open]="lightboxOpen" *ngIf="lightboxOpen">
+  <button class="lightbox-close" (click)="closeLightbox()">✕</button>
+  <button class="lightbox-prev" (click)="prevImage()">‹</button>
+  <img [src]="project.images[lightboxIndex]" [alt]="project.name" />
+  <button class="lightbox-next" (click)="nextImage()">›</button>
+</div>

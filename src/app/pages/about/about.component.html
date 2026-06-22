@@ -1,0 +1,49 @@
+<div class="page-hero">
+  <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1600&q=80')"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <p class="section-tag">About VAD</p>
+    <h1 class="page-title">Our <em>Story</em></h1>
+  </div>
+</div>
+
+<section class="about-section">
+  <div class="about-grid">
+    <div class="about-images reveal">
+      <div class="about-img-main">
+        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80" alt="VAD Office" />
+      </div>
+      <div class="about-img-accent">
+        <img src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=600&q=80" alt="Architecture Detail" />
+      </div>
+      <div class="about-badge"><strong>18</strong><span>Years</span></div>
+    </div>
+    <div class="about-text reveal" style="transition-delay:0.2s">
+      <p class="section-tag">Who We Are</p>
+      <h2 class="section-title">Where Vision Meets <em>Architecture</em></h2>
+      <p class="body-text">Founded on the principle that great architecture changes lives, VAD has been designing landmark buildings, residences, and public spaces for over 18 years.</p>
+      <p class="body-text">Our multidisciplinary team collaborates closely with clients to translate every ambition into built reality — on time, on budget, and beyond expectation.</p>
+      <div class="values-grid">
+        <div class="value-card" *ngFor="let v of values">
+          <div class="value-icon">{{ v.icon }}</div>
+          <div class="value-title">{{ v.title }}</div>
+          <div class="value-desc">{{ v.desc }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="team-section">
+  <div class="reveal" style="text-align:center;margin-bottom:3rem">
+    <p class="section-tag">Our People</p>
+    <h2 class="section-title">Meet the <em>Team</em></h2>
+  </div>
+  <div class="team-grid">
+    <div class="team-card reveal" *ngFor="let m of team; let i = index" [style.transition-delay]="(i*0.1)+'s'">
+      <div class="team-img"><img [src]="m.img" [alt]="m.name" /></div>
+      <div class="team-name">{{ m.name }}</div>
+      <div class="team-role">{{ m.role }}</div>
+    </div>
+  </div>
+</section>

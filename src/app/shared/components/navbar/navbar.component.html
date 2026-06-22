@@ -1,0 +1,23 @@
+<nav [class.scrolled]="scrolled">
+  <a routerLink="/" class="nav-logo">V<span>.</span>A<span>.</span>D</a>
+  <ul class="nav-links">
+    <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a></li>
+    <li><a routerLink="/about" routerLinkActive="active">About</a></li>
+    <li><a routerLink="/projects" routerLinkActive="active">Projects</a></li>
+    <li><a routerLink="/services" routerLinkActive="active">Services</a></li>
+    <li><a routerLink="/testimonials" routerLinkActive="active">Testimonials</a></li>
+    <li><a routerLink="/contact" class="nav-cta">Contact Us</a></li>
+  </ul>
+  <div class="hamburger" [class.open]="mobileOpen" (click)="toggleMobile()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<div class="mobile-nav" [class.open]="mobileOpen">
+  <a routerLink="/" (click)="closeMobile()">Home</a>
+  <a routerLink="/about" (click)="closeMobile()">About</a>
+  <a routerLink="/projects" (click)="closeMobile()">Projects</a>
+  <a routerLink="/services" (click)="closeMobile()">Services</a>
+  <a routerLink="/testimonials" (click)="closeMobile()">Testimonials</a>
+  <a routerLink="/contact" (click)="closeMobile()">Contact</a>
+</div>

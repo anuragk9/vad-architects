@@ -1,0 +1,37 @@
+<div class="page-hero">
+  <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1600&q=80')"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <p class="section-tag">Our Portfolio</p>
+    <h1 class="page-title">Featured <em>Projects</em></h1>
+  </div>
+</div>
+
+<section class="projects-section">
+  <div class="filter-bar reveal">
+    <button class="filter-btn" *ngFor="let cat of categories"
+            [class.active]="activeCategory === cat"
+            (click)="filter(cat)">{{ cat }}</button>
+  </div>
+  <div class="projects-grid">
+    <div class="project-card reveal" *ngFor="let p of filtered; let i = index"
+         [style.transition-delay]="(i*0.08)+'s'"
+         (click)="openModal(p)">
+      <img class="project-thumb-main" [src]="p.thumb" [alt]="p.name" />
+      <div class="project-mini-row">
+        <div class="project-mini-thumb" *ngFor="let img of p.images.slice(1,4)">
+          <img [src]="img" alt="" />
+        </div>
+      </div>
+      <div class="project-overlay"></div>
+      <div class="project-info">
+        <div class="project-cat">{{ p.category }}</div>
+        <div class="project-name">{{ p.name }}</div>
+        <div class="project-year">{{ p.location }} · {{ p.year }}</div>
+        <div class="project-view-btn">View Project →</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-project-modal *ngIf="selectedProject" [project]="selectedProject" (closed)="closeModal()" />

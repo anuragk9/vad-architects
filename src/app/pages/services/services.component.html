@@ -1,0 +1,23 @@
+<div class="page-hero">
+  <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1497366754035-f200968a7efa?w=1600&q=80')"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <p class="section-tag">What We Do</p>
+    <h1 class="page-title">Our <em>Services</em></h1>
+  </div>
+</div>
+
+<section class="services-section">
+  <div class="services-intro reveal">
+    <h2 class="section-title">End-to-End Architectural <em>Excellence</em></h2>
+    <p class="section-desc">From the first concept sketch to the ribbon-cutting ceremony — we are your creative and technical partner throughout.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal" *ngFor="let s of services; let i = index" [style.transition-delay]="(i*0.1)+'s'">
+      <div class="service-num">{{ s.num }}</div>
+      <div class="service-icon">{{ s.icon }}</div>
+      <div class="service-title">{{ s.title }}</div>
+      <div class="service-desc">{{ s.desc }}</div>
+    </div>
+  </div>
+</section>

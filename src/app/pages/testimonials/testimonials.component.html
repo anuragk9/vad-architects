@@ -1,0 +1,39 @@
+<div class="page-hero">
+  <div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1600&q=80')"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <p class="section-tag">Client Voices</p>
+    <h1 class="page-title">What They <em>Say</em></h1>
+  </div>
+</div>
+
+<section class="testi-section">
+  <div class="testi-intro reveal">
+    <h2 class="section-title">Words from Our <em>Clients</em></h2>
+    <p class="section-desc">We measure success not just in buildings, but in the satisfaction of those who inhabit them.</p>
+  </div>
+  <div class="testi-track-wrap reveal">
+    <div class="testi-track" [style.transform]="trackTranslate">
+      <div class="testi-card" *ngFor="let t of testimonials">
+        <div class="stars">{{ stars(t.rating).join('') }}</div>
+        <p class="testi-quote">{{ t.quote }}</p>
+        <div class="testi-author">
+          <div class="author-avatar"><img [src]="t.avatar" [alt]="t.name" /></div>
+          <div>
+            <div class="author-name">{{ t.name }}</div>
+            <div class="author-role">{{ t.role }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="testi-controls">
+    <button class="testi-btn" (click)="prev()">&#8592;</button>
+    <div class="testi-dots">
+      <div class="testi-dot" *ngFor="let t of testimonials; let i = index"
+           [class.active]="i === trackIndex"
+           (click)="goTo(i)"></div>
+    </div>
+    <button class="testi-btn" (click)="next()">&#8594;</button>
+  </div>
+</section>
